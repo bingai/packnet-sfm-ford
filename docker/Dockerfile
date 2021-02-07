@@ -2,7 +2,7 @@
 
 FROM nvidia/cuda:10.1-devel-ubuntu18.04
 
-ENV PROJECT=packnet-sfm
+ENV PROJECT=packnet-sfm-ford
 ENV PYTORCH_VERSION=1.4.0
 ENV TORCHVISION_VERSION=0.5.0
 ENV CUDNN_VERSION=7.6.5.32-1+cuda10.1
@@ -121,14 +121,14 @@ ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
 RUN chmod +x /tini
 ENTRYPOINT ["/tini", "-g", "--"]
 
-# Install DGP (dataset utils)
-WORKDIR /workspace
-RUN git clone https://github.com/TRI-ML/dgp.git \
-    && cd dgp \
-    && pip3 install -r requirements.txt
-ENV PYTHONPATH="/workspace/dgp:$PYTHONPATH"
+# # Install DGP (dataset utils)
+# WORKDIR /workspace
+# RUN git clone https://github.com/TRI-ML/dgp.git \
+#     && cd dgp \
+#     && pip3 install -r requirements.txt
+# ENV PYTHONPATH="/workspace/dgp:$PYTHONPATH"
 
-# Override DGP wandb with required version
+# # Override DGP wandb with required version
 RUN pip install wandb==0.8.21
 
 # Expose Port for jupyter (8888)

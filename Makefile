@@ -1,6 +1,6 @@
 # Handy commands:
-# - `make docker-build`: builds DOCKERIMAGE (default: `packnet-sfm:latest`)
-PROJECT ?= packnet-sfm
+# - `make docker-build`: builds DOCKERIMAGE (default: `packnet-sfm-ford:latest`)
+PROJECT ?= packnet-sfm-ford
 WORKSPACE ?= /workspace/$(PROJECT)
 DOCKER_IMAGE ?= ${PROJECT}:latest
 
@@ -27,7 +27,6 @@ DOCKER_OPTS := \
 			-v ~/.aws:/root/.aws \
 			-v /root/.ssh:/root/.ssh \
 			-v ~/.cache:/root/.cache \
-			-v /data:/data \
 			-v /mnt/fsx/:/mnt/fsx \
 			-v /dev/null:/dev/raw1394 \
 			-v /tmp:/tmp \
@@ -37,7 +36,8 @@ DOCKER_OPTS := \
 			-w ${WORKSPACE} \
 			--privileged \
 			--ipc=host \
-			--network=host
+			--network=host \
+			-v /home/bai2/Documents/data:/data 
 
 NGPUS=$(shell nvidia-smi -L | wc -l)
 MPI_CMD=mpirun \

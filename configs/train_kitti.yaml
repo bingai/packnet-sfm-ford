@@ -24,7 +24,7 @@ datasets:
     augmentation:
         image_shape: (192, 640)
     train:
-        batch_size: 4
+        batch_size: 2
         dataset: ['KITTI']
         path: ['/data/datasets/KITTI_raw']
         split: ['data_splits/eigen_zhou_files.txt']

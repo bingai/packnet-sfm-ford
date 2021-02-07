@@ -79,6 +79,11 @@ def resize_sample_image_and_intrinsics(sample, shape,
         'intrinsics'
     ]):
         intrinsics = np.copy(sample[key])
+        # print("------", intrinsics[0])
+        # print("+++++++", intrinsics[1])
+        # print("+++++++", intrinsics.size())
+
+
         intrinsics[0] *= out_w / orig_w
         intrinsics[1] *= out_h / orig_h
         sample[key] = intrinsics

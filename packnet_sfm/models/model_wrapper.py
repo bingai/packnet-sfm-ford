@@ -53,6 +53,7 @@ class ModelWrapper(torch.nn.Module):
         self.train_dataset = self.validation_dataset = self.test_dataset = None
         self.current_epoch = 0
 
+
         # Prepare model
         self.prepare_model(resume)
 
@@ -69,6 +70,7 @@ class ModelWrapper(torch.nn.Module):
     def prepare_model(self, resume=None):
         """Prepare self.model (incl. loading previous state)"""
         print0(pcolor('### Preparing Model', 'green'))
+
         self.model = setup_model(self.config.model, self.config.prepared)
         # Resume model if available
         if resume:
@@ -82,7 +84,7 @@ class ModelWrapper(torch.nn.Module):
     def prepare_datasets(self, validation_requirements, test_requirements):
         """Prepare datasets for training, validation and test."""
         # Prepare datasets
-        print0(pcolor('### Preparing Datasets', 'green'))
+        print0(pcolor('### Preparing DatasetsDatasetsDatasets', 'green'))
 
         augmentation = self.config.datasets.augmentation
         # Setup train dataset (requirements are given by the model itself)
@@ -425,6 +427,7 @@ def setup_pose_net(config, prepared, **kwargs):
         Created pose network
     """
     print0(pcolor('PoseNet: %s' % config.name, 'yellow'))
+
     pose_net = load_class_args_create(config.name,
         paths=['packnet_sfm.networks.pose',],
         args={**config, **kwargs},
@@ -454,8 +457,10 @@ def setup_model(config, prepared, **kwargs):
         Created model
     """
     print0(pcolor('Model: %s' % config.name, 'yellow'))
+
     model = load_class(config.name, paths=['packnet_sfm.models',])(
         **{**config.loss, **kwargs})
+
     # Add depth network if required
     if model.network_requirements['depth_net']:
         model.add_depth_net(setup_depth_net(config.depth_net, prepared))
@@ -517,6 +522,13 @@ def setup_dataset(config, mode, requirements, **kwargs):
         if config.dataset[i] == 'KITTI':
             from packnet_sfm.datasets.kitti_dataset import KITTIDataset
             dataset = KITTIDataset(
+                config.path[i], path_split,
+                **dataset_args, **dataset_args_i,
+            )
+        # ValetParking dataset //similar to KITTI dataset
+        elif config.dataset[i] == 'ValetParking':
+            from packnet_sfm.datasets.valetparking_dataset import ValetParkingDataset
+            dataset = ValetParkingDataset(
                 config.path[i], path_split,
                 **dataset_args, **dataset_args_i,
             )
