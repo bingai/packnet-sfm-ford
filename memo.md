@@ -4,7 +4,7 @@ python3 scripts/jit_trace.py
 
 # Training in different modes:
 ### 2. ValetParking Dataset
-**2.1 self_supervised_kitti_192x640:**/
+**2.1 self_supervised_kitti_192x640:**\
 make docker-run COMMAND="python3 scripts/train.py configs/train_valetparking.yaml"
 
 # run interactively:
@@ -36,80 +36,80 @@ make docker-run COMMAND="python3 scripts/infer.py --checkpoint ./pretrained_mode
 # Infer in different modes:
 
 ### 1. AutoHitch Dataset
-**1.1 self_supervised_kitti_192x640:**/
+**1.1 self_supervised_kitti_192x640:**\
 make docker-run COMMAND="python3 scripts/infer.py --checkpoint ./pretrained_models/PackNet01_MR_selfsup_K.ckpt --input ./data/Autohitch/AutoHitch_Images --output ./data/Autohitch/self_supervised_kitti_192x640"
 
-**1.2 self_supervised_Scale_Aware_CS_kitti_192x640:**/
+**1.2 self_supervised_Scale_Aware_CS_kitti_192x640:**\
 make docker-run COMMAND="python3 scripts/infer.py --checkpoint ./pretrained_models/PackNet01_MR_velsup_CStoK.ckpt --input ./data/Autohitch/AutoHitch_Images --output ./data/Autohitch/self_supervised_Scale_Aware_CS_kitti_192x640"
 
-**1.3 self_supervised_Scale_Aware_CS_kitti_384x1280:**/
+**1.3 self_supervised_Scale_Aware_CS_kitti_384x1280:**\
 make docker-run COMMAND="python3 scripts/infer.py --checkpoint ./pretrained_models/PackNet01_HR_velsup_CStoK.ckpt --input ./data/Autohitch/AutoHitch_Images --output ./data/Autohitch/self_supervised_Scale_Aware_CS_kitti_384x1280"
 
-**1.4 semi_supervised_cs_kitti_192x640:**/
+**1.4 semi_supervised_cs_kitti_192x640:**\
 make docker-run COMMAND="python3 scripts/infer.py --checkpoint ./pretrained_models/PackNet01_MR_semisup_CStoK.ckpt --input ./data/Autohitch/AutoHitch_Images --output ./data/Autohitch/semi_supervised_cs_kitti_192x640"
 
-**1.4.1 semi_supervised_cs_kitti_192x640 with Pinhole input:**/
+**1.4.1 semi_supervised_cs_kitti_192x640 with Pinhole input:**\
 make docker-run COMMAND="python3 scripts/infer.py --checkpoint ./pretrained_models/PackNet01_MR_semisup_CStoK.ckpt --input ./data/Autohitch/pinhole_images --output ./data/Autohitch/semi_supervised_cs_kitti_192x640_pinhole"
 
-**1.5 self_supervised_DDAD_384x640:**/
+**1.5 self_supervised_DDAD_384x640:**\
 make docker-run COMMAND="python3 scripts/infer.py --checkpoint ./pretrained_models/PackNet01_MR_selfsup_D.ckpt --input ./data/Autohitch/AutoHitch_Images --output ./data/Autohitch/self_supervised_DDAD_384x640"
 
 
 ### 2. ValetParking Dataset
-**2.1 self_supervised_kitti_192x640:**/
+**2.1 self_supervised_kitti_192x640:**\
 make docker-run COMMAND="python3 scripts/infer.py --checkpoint ./pretrained_models/PackNet01_MR_selfsup_K.ckpt --input ./data/ValetParking/ValetParking_Images --output ./data/ValetParking/self_supervised_kitti_192x640"
 
-**2.2 self_supervised_Scale_Aware_CS_kitti_192x640:**/
+**2.2 self_supervised_Scale_Aware_CS_kitti_192x640:**\
 make docker-run COMMAND="python3 scripts/infer.py --checkpoint ./pretrained_models/PackNet01_MR_velsup_CStoK.ckpt --input ./data/ValetParking/ValetParking_Images --output ./data/ValetParking/self_supervised_Scale_Aware_CS_kitti_192x640"
 
-**2.3 self_supervised_Scale_Aware_CS_kitti_384x1280:**/
+**2.3 self_supervised_Scale_Aware_CS_kitti_384x1280:**\
 make docker-run COMMAND="python3 scripts/infer.py --checkpoint ./pretrained_models/PackNet01_HR_velsup_CStoK.ckpt --input ./data/ValetParking/ValetParking_Images --output ./data/ValetParking/self_supervised_Scale_Aware_CS_kitti_384x1280"
 
 
-**2.4 semi_supervised_cs_kitti_192x640:**/
+**2.4 semi_supervised_cs_kitti_192x640:**\
 make docker-run COMMAND="python3 scripts/infer.py --checkpoint ./pretrained_models/PackNet01_MR_semisup_CStoK.ckpt --input ./data/ValetParking/ValetParking_Images --output ./data/ValetParking/semi_supervised_cs_kitti_192x640"
 
-**2.4.1 semi_supervised_cs_kitti_192x640 with Pinhole input:**/
+**2.4.1 semi_supervised_cs_kitti_192x640 with Pinhole input:**\
 make docker-run COMMAND="python3 scripts/infer.py --checkpoint ./pretrained_models/PackNet01_MR_semisup_CStoK.ckpt --input ./data/ValetParking/pinhole_RearCamera --output ./data/ValetParking/semi_supervised_cs_kitti_192x640_pinhole"
 
-**2.5 self_supervised_DDAD_384x640:**/
+**2.5 self_supervised_DDAD_384x640:**\
 make docker-run COMMAND="python3 scripts/infer.py --checkpoint ./pretrained_models/PackNet01_MR_selfsup_D.ckpt --input ./data/ValetParking/ValetParking_Images --output ./data/ValetParking/self_supervised_DDAD_384x640"
 
 
 
 ## Inference for ValetParking Fisheye Images
-**1. based on KITTI dataset**/
+**1. based on KITTI dataset**\
 python3 scripts/infer.py --checkpoint ./pretrained_models/PackNet01_MR_selfsup_K.ckpt --input ./data/datasets/ValetParking_exp/2019_07_25/2019_07_25_drive_160359/image_01/data --output ./data/datasets/ValetParking_exp/2019_07_25/2019_07_25_drive_160359/image_01/depth_output_trainK
 
-**2. based on 300th training dataset**/
+**2. based on 300th training dataset**\
 python3 scripts/infer.py --checkpoint ./pretrained_models/vp_lr_03_02_2021.ckpt --input ./data/datasets/ValetParking_exp/2019_07_25/2019_07_25_drive_160359/image_01/data --output ./data/datasets/ValetParking_exp/2019_07_25/2019_07_25_drive_160359/image_01/depth_output
 
-**3. based on 1st training dataset**/
+**3. based on 1st training dataset**\
 python3 scripts/infer.py --checkpoint ./pretrained_models/vp_lr_03_02_2021_00.ckpt --input ./data/datasets/ValetParking_exp/2019_07_25/2019_07_25_drive_160359/image_01/data --output ./data/datasets/ValetParking_exp/2019_07_25/2019_07_25_drive_160359/image_01/depth_output_00
 
 
 ## Inference for ValetParking Pinhole Images
-**1. based on KITTI dataset**/
+**1. based on KITTI dataset**\
 
-**2. based on 300th training dataset**/
+**2. based on 300th training dataset**\
 python3 scripts/infer.py --checkpoint ./pretrained_models/vp_lr_pinhole_03_02_2021.ckpt --input ./data/datasets/ValetParking_exp/2019_07_25/2019_07_25_drive_160359/image_01_pinhole/data --output ./data/datasets/ValetParking_exp/2019_07_25/2019_07_25_drive_160359/image_01_pinhole/depth_output
 
-**3. based on 1st training dataset**/
+**3. based on 1st training dataset**\
 python3 scripts/infer.py --checkpoint ./pretrained_models/vp_lr_pinhole_03_02_2021_00.ckpt --input ./data/datasets/ValetParking_exp/2019_07_25/2019_07_25_drive_160359/image_01_pinhole/data --output ./data/datasets/ValetParking_exp/2019_07_25/2019_07_25_drive_160359/image_01_pinhole/depth_output_00
 
 # EXPERIMENTS:
 ## 4: 03-06-2021 exp rear
-**4a: rear_fisheye**/
+**4a: rear_fisheye**\
 python3 scripts/infer.py --checkpoint ./pretrained_models/vp_rear_fisheye_03_05_2021_K.ckpt --input ./data/datasets/ValetParking_exp/2019_07_25/2019_07_25_drive_160359/image_03/data --output ./data/datasets/ValetParking_exp/2019_07_25/2019_07_25_drive_160359/image_03/depth_output_K
 
-**4b: rear_pinhole**/
+**4b: rear_pinhole**\
 python3 scripts/infer.py --checkpoint ./pretrained_models/vp_rear_pinhole_03_05_2021.ckpt --input ./data/datasets/ValetParking_exp/2019_07_25/2019_07_25_drive_160359/image_03_pinhole/data --output ./data/datasets/ValetParking_exp/2019_07_25/2019_07_25_drive_160359/image_03_pinhole/depth_output
 
 
 ## 5: 03-06-2021 exp rear
-**5a: left_fisheye**/
+**5a: left_fisheye**\
 python3 scripts/infer.py --checkpoint ./pretrained_models/vp_rear_fisheye_03_05_2021_K.ckpt --input ./data/datasets/ValetParking_exp/2019_07_25/2019_07_25_drive_160359/image_01/data --output ./data/datasets/ValetParking_exp/2019_07_25/2019_07_25_drive_160359/image_01/depth_output_K
 
-**5b: left_pinhole**/
+**5b: left_pinhole**\
 python3 scripts/infer.py --checkpoint ./pretrained_models/vp_rear_pinhole_03_05_2021.ckpt --input ./data/datasets/ValetParking_exp/2019_07_25/2019_07_25_drive_160359/image_01_pinhole/data --output ./data/datasets/ValetParking_exp/2019_07_25/2019_07_25_drive_160359/image_01_pinhole/depth_output
 
