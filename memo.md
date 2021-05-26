@@ -141,11 +141,8 @@ python3 scripts/infer.py --checkpoint ./pretrained_models/vp_rear_fisheye_03_05_
 python3 scripts/infer.py --checkpoint ./pretrained_models/vp_rear_pinhole_03_05_2021.ckpt --input ./data/datasets/ValetParking_exp/2019_07_25/2019_07_25_drive_160359/image_01_pinhole/data --output ./data/datasets/ValetParking_exp/2019_07_25/2019_07_25_drive_160359/image_01_pinhole/depth_output
 
 
-######## Convert pytorch model to torch script via tracing
-
-######## Convert pytorch model to torch script via tracing
-
-######## Convert pytorch model to torch script via tracing
-######## Convert pytorch model to torch script via tracing
+# ###########Save Models --> Convert pytorch model to torch script via tracing
+# ###########Save Models --> Convert pytorch model to torch script via tracing
 python3 scripts/jit_trace.py
+
 
