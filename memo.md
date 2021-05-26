@@ -1,7 +1,6 @@
 
 cd packnet-sfm
-# ###########Save Models --> Convert pytorch model to torch script via tracing
-# ###########Save Models --> Convert pytorch model to torch script via tracing
+# Save Models --> Convert pytorch model to torch script via tracing
 python3 scripts/jit_trace.py
 
 # if you want to use docker (recommended)
