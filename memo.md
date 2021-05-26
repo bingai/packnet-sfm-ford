@@ -105,3 +105,5 @@ docker start -i <container id>
 # ######## Train ValetParking Dataset from the scratch
 make docker-run COMMAND="python3 scripts/train.py configs/train_valetparking.yaml"
 
+# ######## Convert pytorch model to torch script via tracing
+python3 scripts/jit_trace.py 
