@@ -1,13 +1,16 @@
 
 cd packnet-sfm
+# ###########Save Models --> Convert pytorch model to torch script via tracing
+# ###########Save Models --> Convert pytorch model to torch script via tracing
+python3 scripts/jit_trace.py
 
 # if you want to use docker (recommended)
 make docker-build
 
-#Infer
+## Infer
 python3 scripts/infer.py --checkpoint <checkpoint.ckpt> --input <image or folder> --output <image or folder> [--image_shape <input shape (h,w)>]
 
-#Infer Examples:
+## Infer Examples:
 # 1. AutoHitch Dataset
 # 1.1 get the inference for the autohitch image:
 make docker-run COMMAND="python3 scripts/infer.py --checkpoint ./pretrained_models/PackNet01_MR_selfsup_K.ckpt --input ./data/AutoHitch/color_image --output ./data/Autohitch/color_image_output"
@@ -141,8 +144,6 @@ python3 scripts/infer.py --checkpoint ./pretrained_models/vp_rear_fisheye_03_05_
 python3 scripts/infer.py --checkpoint ./pretrained_models/vp_rear_pinhole_03_05_2021.ckpt --input ./data/datasets/ValetParking_exp/2019_07_25/2019_07_25_drive_160359/image_01_pinhole/data --output ./data/datasets/ValetParking_exp/2019_07_25/2019_07_25_drive_160359/image_01_pinhole/depth_output
 
 
-# ###########Save Models --> Convert pytorch model to torch script via tracing
-# ###########Save Models --> Convert pytorch model to torch script via tracing
-python3 scripts/jit_trace.py
+
 
 
