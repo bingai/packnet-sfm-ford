@@ -78,27 +78,27 @@ make docker-run COMMAND="python3 scripts/infer.py --checkpoint ./pretrained_mode
 
 
 ## Inference for ValetParking Fisheye Images
-**01 based on KITTI dataset**/
+**1. based on KITTI dataset**/
 python3 scripts/infer.py --checkpoint ./pretrained_models/PackNet01_MR_selfsup_K.ckpt --input ./data/datasets/ValetParking_exp/2019_07_25/2019_07_25_drive_160359/image_01/data --output ./data/datasets/ValetParking_exp/2019_07_25/2019_07_25_drive_160359/image_01/depth_output_trainK
 
-**02 based on 300th training dataset**/
+**2. based on 300th training dataset**/
 python3 scripts/infer.py --checkpoint ./pretrained_models/vp_lr_03_02_2021.ckpt --input ./data/datasets/ValetParking_exp/2019_07_25/2019_07_25_drive_160359/image_01/data --output ./data/datasets/ValetParking_exp/2019_07_25/2019_07_25_drive_160359/image_01/depth_output
 
-**03 ##### based on 1st training dataset**/
+**3. based on 1st training dataset**/
 python3 scripts/infer.py --checkpoint ./pretrained_models/vp_lr_03_02_2021_00.ckpt --input ./data/datasets/ValetParking_exp/2019_07_25/2019_07_25_drive_160359/image_01/data --output ./data/datasets/ValetParking_exp/2019_07_25/2019_07_25_drive_160359/image_01/depth_output_00
 
 
 ## Inference for ValetParking Pinhole Images
-**01 based on KITTI dataset**/
+**1. based on KITTI dataset**/
 
-**02 based on 300th training dataset**/
+**2. based on 300th training dataset**/
 python3 scripts/infer.py --checkpoint ./pretrained_models/vp_lr_pinhole_03_02_2021.ckpt --input ./data/datasets/ValetParking_exp/2019_07_25/2019_07_25_drive_160359/image_01_pinhole/data --output ./data/datasets/ValetParking_exp/2019_07_25/2019_07_25_drive_160359/image_01_pinhole/depth_output
 
-**03 based on 1st training dataset**/
+**3. based on 1st training dataset**/
 python3 scripts/infer.py --checkpoint ./pretrained_models/vp_lr_pinhole_03_02_2021_00.ckpt --input ./data/datasets/ValetParking_exp/2019_07_25/2019_07_25_drive_160359/image_01_pinhole/data --output ./data/datasets/ValetParking_exp/2019_07_25/2019_07_25_drive_160359/image_01_pinhole/depth_output_00
 
 # EXPERIMENTS:
-## 04: 03-06-2021 exp rear
+## 4: 03-06-2021 exp rear
 **4a: rear_fisheye**/
 python3 scripts/infer.py --checkpoint ./pretrained_models/vp_rear_fisheye_03_05_2021_K.ckpt --input ./data/datasets/ValetParking_exp/2019_07_25/2019_07_25_drive_160359/image_03/data --output ./data/datasets/ValetParking_exp/2019_07_25/2019_07_25_drive_160359/image_03/depth_output_K
 
@@ -106,7 +106,7 @@ python3 scripts/infer.py --checkpoint ./pretrained_models/vp_rear_fisheye_03_05_
 python3 scripts/infer.py --checkpoint ./pretrained_models/vp_rear_pinhole_03_05_2021.ckpt --input ./data/datasets/ValetParking_exp/2019_07_25/2019_07_25_drive_160359/image_03_pinhole/data --output ./data/datasets/ValetParking_exp/2019_07_25/2019_07_25_drive_160359/image_03_pinhole/depth_output
 
 
-## 05: 03-06-2021 exp rear
+## 5: 03-06-2021 exp rear
 **5a: left_fisheye**/
 python3 scripts/infer.py --checkpoint ./pretrained_models/vp_rear_fisheye_03_05_2021_K.ckpt --input ./data/datasets/ValetParking_exp/2019_07_25/2019_07_25_drive_160359/image_01/data --output ./data/datasets/ValetParking_exp/2019_07_25/2019_07_25_drive_160359/image_01/depth_output_K
 
